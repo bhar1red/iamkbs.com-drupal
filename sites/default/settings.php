@@ -86,15 +86,7 @@
  * );
  * @endcode
  */
- $databases['default']['default'] = array(
-   'database' => 'drupal.iamkbs',
-   'username' => 'iamkbs',
-   'password' => 'iamkbs',
-   'host' => 'localhost',
-   'port' => '3306',
-   'driver' => 'mysql',
-   'collation' => 'utf8mb4_general_ci',
- );
+ $databases = array();
 
 /**
  * Customizing database settings.
@@ -771,15 +763,16 @@ $settings['file_scan_ignore_directories'] = [
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+$db_config = parse_ini_file("/etc/opt/iamkbs/credentials.ini");
 $databases['default']['default'] = array (
-  'database' => 'drupal.iamkbs',
-  'username' => 'iamkbs',
-  'password' => 'iamkbs',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
+  'database' => $db_config['database'],
+  'username' => $db_config['username'],
+  'password' => $db_config['password'],
+  'prefix' => $db_config['prefix'],
+  'host' => $db_config['host'],
+  'port' => $db_config['port'],
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
+  'driver' => $db_config['driver'],
 );
 $settings['install_profile'] = 'minimal';
 $config_directories['sync'] = 'sites/default/files/config_PhQvj3JJT3KO46HbKuulGSCMKwXs19BATuJCHw7h7npceHBt-m4Y_EicO6GAc1QpvO3AdshZZw/sync';
