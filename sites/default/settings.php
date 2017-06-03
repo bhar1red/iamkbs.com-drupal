@@ -303,7 +303,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'PQJJVVWsJbCj-2QsfVq4b6eo8AcxGA_Q9NzhosmauY-THFmqF3EDrHHLOqfr4u_i81qcCwPCZQ';
 
 /**
  * Deployment identifier.
@@ -771,3 +771,15 @@ $settings['file_scan_ignore_directories'] = [
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+$databases['default']['default'] = array (
+  'database' => 'drupal.iamkbs',
+  'username' => 'iamkbs',
+  'password' => 'iamkbs',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$settings['install_profile'] = 'minimal';
+$config_directories['sync'] = 'sites/default/files/config_PhQvj3JJT3KO46HbKuulGSCMKwXs19BATuJCHw7h7npceHBt-m4Y_EicO6GAc1QpvO3AdshZZw/sync';
